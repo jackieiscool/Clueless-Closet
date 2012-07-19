@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS garments;
+DROP TABLE IF EXISTS types;
+
+CREATE TABLE garments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type_id INTEGER NOT NULL,
+  image_uri VARCHAR,
+  name VARCHAR NOT NULL,
+  times_worn INTEGER,
+  soiled VARCHAR(10),
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL,
+  FOREIGN KEY(type_id) REFERENCES types(id)
+);
+
+CREATE TABLE types (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL
+);
